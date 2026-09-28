@@ -4,7 +4,7 @@
 
 This project develops and evaluates a repeatable workflow from a Python neural-network model to a specified architecture, verified synthesizable RTL, and an FPGA implementation. The Fall 2026 goal is to deploy complete RTL MNIST inference on the **AMD Kria KV260**, then scale the reusable architecture toward **complete quantized ResNet50 inference by the end of the semester**.
 
-The engineering process is itself a major deliverable: explicit specifications, independent verification, reproducible builds, and measured evidence of how AI assistance affects development effort and implementation quality.
+The engineering process is itself a major deliverable: explicit specifications, independent verification, reproducible builds, and measured evidence of how AI assistance affects development effort and implementation quality. Monday meetings review working evidence. ResNet50 work begins only after MNIST is deployed, validated, and benchmarked on KV260.
 
 ## Project guide
 
