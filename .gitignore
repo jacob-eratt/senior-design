@@ -1,3 +1,5 @@
 __pycache__/
 data/
 profiling_results/
+.venv-resnet/
+resnet8_project/resnet8/artifacts/

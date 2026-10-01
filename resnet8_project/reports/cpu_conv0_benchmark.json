@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2026-10-01T15:43:43.249372+00:00",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.2",
+  "numpy": "1.26.4",
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "kernel_shape_hwio": [
+    3,
+    3,
+    3,
+    26
+  ],
+  "output_shape": [
+    1,
+    32,
+    32,
+    26
+  ],
+  "mac_operations": 718848,
+  "fixture_sha256": "65e47423d68dab0ebcb1bd887a1629ebb5086b7d68b1eef4c398b22409bf0a6d",
+  "scope": "Resident operands, batch 1, conv+bias only; no file IO, model load, quantization, ReLU, or device transfer in timing.",
+  "numpy_int8_int32_reference": {
+    "unit": "microseconds",
+    "warmup": 25,
+    "repeats": 500,
+    "min": 973.2,
+    "median": 1259.65,
+    "p95": 2049.1299999999974,
+    "mean": 1351.761
+  },
+  "tensorflow_fp32_same_operands": {
+    "unit": "microseconds",
+    "warmup": 25,
+    "repeats": 500,
+    "min": 1208.1,
+    "median": 1963.5,
+    "p95": 2490.1499999999987,
+    "mean": 2040.1876000000002
+  },
+  "tensorflow": "2.16.1",
+  "tensorflow_threads": {
+    "intra_op": 1,
+    "inter_op": 1
+  },
+  "tensorflow_note": "FP32 arithmetic on the same integer-valued inputs/weights/bias; fixture output equality checked. Includes tf.function dispatch and .numpy(); not an optimized INT8 baseline."
+}
