@@ -1,0 +1,3 @@
+# Preserve exact bytes for upstream provenance guards and portable fixture hashes.
+resnet8_project/resnet8/upstream/* -text
+resnet8_project/fixtures/**/*.mem -text

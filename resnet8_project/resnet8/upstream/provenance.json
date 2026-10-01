@@ -1,0 +1,53 @@
+{
+  "source_revision": "4addd0fa08d216e20637637874e084895f289da4",
+  "weights_revision": "eb78d0ebaf2c812ce13668f017a22171a38cd051",
+  "files": {
+    "keras_model.py": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/keras_model.py",
+      "sha256": "52a7564de25828abba7aa4aa785f1355513ad86079bad1ef9f26167073791f45",
+      "bytes": 11448
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/README.md",
+      "sha256": "9ecd3c69be9da53a9f386461293be4959dc0fe7f8aa33de1f6239a74b2ca9260",
+      "bytes": 1234
+    },
+    "train.py": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/train.py",
+      "sha256": "4c238829dc8f89961fb136d184565693350dc17ed9b3466b279a564f02d9c592",
+      "bytes": 6228
+    },
+    "test.py": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/test.py",
+      "sha256": "741e74c9c51823cf55f03e3de2e5c97e1ce169bde663e4919f4bb97913193aca",
+      "bytes": 2270
+    },
+    "eval_functions_eembc.py": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/eval_functions_eembc.py",
+      "sha256": "64be48b7cfe4ca1157f01227f3122ee1760c8c5509c6875cacaab8ff931b22d1",
+      "bytes": 8694
+    },
+    "calibration_samples_idxs.npy": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/calibration_samples_idxs.npy",
+      "sha256": "c619b84e9ea72c8d7a9208b6c38af541594ea002c0e19731d1af47397b96ce97",
+      "bytes": 4128
+    },
+    "pretrainedResnet.h5": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/benchmark/training/image_classification/trained_models/pretrainedResnet.h5",
+      "sha256": "5f938a8eea605438cc7360aa13c987bc6d7bd0c8d931b2917361ae7ae4eeda2f",
+      "bytes": 1116712
+    },
+    "LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/4addd0fa08d216e20637637874e084895f289da4/LICENSE.md",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "bytes": 10174
+    },
+    "pretrainedResnet26.h5": {
+      "url": "https://raw.githubusercontent.com/mlcommons/tiny/eb78d0ebaf2c812ce13668f017a22171a38cd051/benchmark/training/image_classification/trained_models/pretrainedResnet.h5",
+      "sha256": "7e469415849ea0be2d5a6cb988a0840e2ffc4184ee1bdff3442a2f1ae4774fdf",
+      "bytes": 2624760
+    }
+  },
+  "selected_weights": "pretrainedResnet26.h5",
+  "rejected_current_weights": "pretrainedResnet.h5 has channels 16/32/64, incompatible with frozen 26/52/104 graph"
+}
