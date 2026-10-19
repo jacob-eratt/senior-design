@@ -11,6 +11,14 @@ overhead and full-network integration. See the
 [team progress update](resnet8_project/PROGRESS_UPDATE.md) and
 [architecture overview](resnet8_project/resnet8/TEAM_OVERVIEW.md).
 
+## ResNet8 accelerator Python hardware model
+
+[resnet8/](resnet8/README.md) contains a bit-accurate, cycle-level Python model of an int8
+ResNet8 (MLPerf Tiny, CIFAR-10) accelerator built around a 16×16 MAC array, together with
+training, quantization, test-vector export, and the microarchitecture spec
+([resnet8/SPEC.md](resnet8/SPEC.md)). It trains its own 16-channel ResNet8; it is not yet
+aligned with the 26-channel pretrained network used in `resnet8_project/`.
+
 The earlier MNIST/ResNet50 roadmap below is retained as project history.
 
 ## AI-assisted hardware design: Python to FPGA

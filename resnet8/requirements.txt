@@ -1,0 +1,8 @@
+# Hardware model, compiler, reference and tests need only numpy (+ pytest).
+numpy>=1.26
+pytest>=8
+# Training, quantization and float comparisons.
+torch>=2.2
+torchvision>=0.17
+# Fast CIFAR-10 download from the Hugging Face mirror (python -m resnet8.data).
+pyarrow>=14
