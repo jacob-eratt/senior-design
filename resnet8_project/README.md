@@ -3,7 +3,7 @@
 All ResNet-8 software, starter convolution RTL, tests, documentation, pretrained
 assets, and generated golden vectors are grouped here.
 
-Start with the [15-minute meeting walkthrough and task cards](onboarding/README.md).
+Start with [Understanding our ResNet-8 accelerator](onboarding/MEETING_WALKTHROUGH.md) for the model, ML operations, hardware rationale, results and next steps. Use the [task cards](onboarding/TASK_CARDS.md) for the working session.
 
 See the [team architecture and development overview](resnet8/TEAM_OVERVIEW.md)
 for the complete flow, current verification status, and remaining goals.
