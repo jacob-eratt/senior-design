@@ -1,3 +1,5 @@
 # Preserve exact bytes for upstream provenance guards and portable fixture hashes.
 resnet8_project/resnet8/upstream/* -text
 resnet8_project/fixtures/**/*.mem -text
+# Preserve archived report/log bytes for the evidence SHA-256 manifest.
+resnet8_project/reports/vivado_2026_10_19/** -text

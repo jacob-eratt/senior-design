@@ -3,11 +3,24 @@
 All ResNet-8 software, starter convolution RTL, tests, documentation, pretrained
 assets, and generated golden vectors are grouped here.
 
-Start with the [team architecture and development overview](resnet8/TEAM_OVERVIEW.md)
+Start with the [15-minute meeting walkthrough and task cards](onboarding/README.md).
+
+See the [team architecture and development overview](resnet8/TEAM_OVERVIEW.md)
 for the complete flow, current verification status, and remaining goals.
+For cycle-by-cycle Python architecture experiments, start with
+[cycle_sim/README.md](cycle_sim/README.md) and `simulate_conv0.py`.
+The architecture study and recommendation (detailed file retained locally)
+compares MAC counts, output widths, buffering, transport rates, and DSP/LUT choices.
+The [latency-first INT8 and AXI study](cycle_sim/AXI_INT8_STUDY.md) models
+requantization/ReLU, AXI4-Stream data handshakes and AXI4-Lite controls.
 For a shareable status message, see [PROGRESS_UPDATE.md](PROGRESS_UPDATE.md).
-The immediate milestone is a verified, implementable Conv0 layer; CPU/FPGA
-transfer overhead and full-network integration follow that milestone.
+The [KV260 RTL and AXI DMA project](rtl/kv260_conv0/README.md) now contains the
+832-MAC candidate, INT8 output pipeline, Vivado build scripts, testbench, and
+standalone A53 benchmark. Follow its
+[board build and benchmark guide](rtl/kv260_conv0/KV260_BUILD_AND_BENCHMARK.md).
+The new RTL passed simulation and integrated routing/timing; bitstream/XSA export
+succeeded October 19. Vitis compilation, board correctness, and measured CPU/FPGA
+latency remain pending. See [current status](CURRENT_STATUS.md).
 
 ```text
 resnet8_project/
@@ -16,6 +29,10 @@ resnet8_project/
   export_model.py               Quantization and hardware memory export
   verify_resnet.py              Saved-vector and export verification
   benchmark_conv0.py            CPU-only Conv0 timing with resident operands
+  simulate_conv0.py             Clock-stepped RTL model, host timing, and sweeps
+  explore_conv0.py              Reproduce the expanded architecture study
+  simulate_axi_conv0.py         INT8 output, AXIS/AXI-Lite traces, latency/resource sweep
+  cycle_sim/                   Core, transfer model, configs, resource accounting
   fixtures/                    Small portable Conv0 golden memory images
   reports/                     CPU measurements and reported RTL results
   requirements-resnet.txt       Pinned Python dependencies
@@ -74,6 +91,7 @@ skipped. Synthesis results for that engine remain pending.
 
 The [416-MAC Conv0 engine and testbench](rtl/CONV0_416.md) passed the user-reported
 five-frame synthetic run (133,120 comparisons). The Python fixture was skipped;
-synthesis and implementation results remain pending. The Vivado setup scripts
+synthesis was later found to use 832 DSPs and 16 BRAM36 tiles, with standalone
+I/O exceeding the device limit. Implemented timing remains pending. The Vivado setup scripts
 can use the checked-in [portable fixture](fixtures/README.md) on a fresh clone.
 See [recorded measurements](reports/README.md) for evidence and CPU timing scope.

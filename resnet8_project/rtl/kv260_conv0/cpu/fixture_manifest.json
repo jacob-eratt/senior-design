@@ -1,0 +1,61 @@
+{
+  "source": {
+    "description": "Conv0 INT8 input/weights, raw INT32 accumulator and requantized INT8/ReLU output; CIFAR-10 test index 3, airplane",
+    "checkpoint_sha256": "7e469415849ea0be2d5a6cb988a0840e2ffc4184ee1bdff3442a2f1ae4774fdf",
+    "export_manifest_sha256": "019bbf4bea132b9e0bc032aa0bd84e6cd00fcdba1865ee2bfa37614d7ea1e61b",
+    "files": {
+      "layer_vectors/conv0/input.mem": {
+        "elements": 3072,
+        "bits_per_element": 8,
+        "sha256": "11d26259421b50ddc0dcbb123c0ab49c8d0bdf46d803e89d0db490805b073812"
+      },
+      "export/conv0_weights.mem": {
+        "elements": 702,
+        "bits_per_element": 8,
+        "sha256": "3842f9b2370204ed1cd59bd6aa60dc16107724352e01510f42af00eab592667e"
+      },
+      "export/conv0_bias.mem": {
+        "elements": 26,
+        "bits_per_element": 32,
+        "sha256": "ef0a707f2034f830bf934368db9aa8124634cde57645edb2551ebddf7d5c9588"
+      },
+      "layer_vectors/conv0/expected_acc.mem": {
+        "elements": 26624,
+        "bits_per_element": 32,
+        "sha256": "1c11bc15382e00c5f113638acc91a8629ab3842e0a3e6f2cedd953f7c6466b32"
+      },
+      "export/conv0_quant.mem": {
+        "elements": 52,
+        "bits_per_element": 32,
+        "sha256": "d88edc9b8c313ad2546d490c59ac3dcc1c53bce24095930a4518149f0e04089a"
+      },
+      "layer_vectors/conv0/expected_output.mem": {
+        "elements": 26624,
+        "bits_per_element": 8,
+        "sha256": "5a562685dda827bd60b61891c721b6427e82b72c462fcdecd92d998aa4026218"
+      }
+    }
+  },
+  "payloads": {
+    "fixture_image": {
+      "bytes": 3072,
+      "sha256": "428af2afeb7eedd1bf5079ce640519620d6b5bc4ea2f446ce6a56f2e6072569b"
+    },
+    "fixture_weights": {
+      "bytes": 702,
+      "sha256": "0bc19c18174d4cf2c7884ad00cdc4c45089c8ca1c6574916e802e245d053c94a"
+    },
+    "fixture_bias": {
+      "bytes": 104,
+      "sha256": "27a07cf6e55acdb5ab3de4f0fca47c953f45872491ab04bba5287cde86e972dd"
+    },
+    "fixture_quant": {
+      "bytes": 208,
+      "sha256": "db2027853087ae9567023b28c7674d43f39b8123df10136dcd92b3aa2ec0d493"
+    },
+    "fixture_expected": {
+      "bytes": 26624,
+      "sha256": "814f30f66bd61c9a8088cc5eeae85d73caaaf434c324a90de3cae3d87d0bcc0d"
+    }
+  }
+}

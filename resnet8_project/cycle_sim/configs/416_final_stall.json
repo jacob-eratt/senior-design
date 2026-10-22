@@ -1,0 +1,6 @@
+{
+  "description": "Matches the six forced final-write stalls in the existing synthetic testbench's first two frames.",
+  "architecture": {"spatial_lanes": 16, "output_lanes": 4},
+  "host": {"clock_mhz": 100, "final_stall_cycles": 6},
+  "resources": {"dsp_per_mac": 2}
+}

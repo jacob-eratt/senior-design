@@ -4,12 +4,11 @@
 
 Python references, pretrained weights, export tools, convolution RTL, testbenches,
 and a portable golden fixture are grouped in [resnet8_project/](resnet8_project/README.md).
-The 416-MAC Conv0 engine passed the reported synthetic simulation; its synthesis
-report and pretrained golden-fixture comparison remain pending. The immediate
-milestone is one verified, implementable convolution, followed by transfer
-overhead and full-network integration. See the
-[team progress update](resnet8_project/PROGRESS_UPDATE.md) and
-[architecture overview](resnet8_project/resnet8/TEAM_OVERVIEW.md).
+The current 832-MAC Conv0 design passed RTL simulation and integrated routing/timing;
+bitstream/XSA export completed. Vitis compilation and board execution remain pending.
+Start with the [15-minute team onboarding](resnet8_project/onboarding/README.md),
+[current evidence](resnet8_project/CURRENT_STATUS.md), and
+[publication inventory](resnet8_project/PUBLICATION_INVENTORY.md).
 
 The earlier MNIST/ResNet50 roadmap below is retained as project history.
 

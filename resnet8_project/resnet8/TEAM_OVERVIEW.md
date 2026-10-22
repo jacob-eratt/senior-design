@@ -1,6 +1,8 @@
+> **Publication status, October 21:** simulation, integrated routing/timing, and bitstream/XSA export have completed. Vitis compilation and board execution remain pending. Historical unrun statements below are superseded by [current status](../CURRENT_STATUS.md).
+
 # ResNet-8 FPGA project: team architecture and development flow
 
-Status as of **October 1, 2026**. This is the team entry point. The exact model
+Updated **October 19, 2026**. This is the team entry point. The exact model
 specification lives in [ARCHITECTURE.md](ARCHITECTURE.md), and the integer arithmetic
 and export format live in [HARDWARE_CONTRACT.md](HARDWARE_CONTRACT.md).
 
@@ -12,9 +14,12 @@ software results, then build RTL that reproduces the integer software exactly,
 then integrate memory and host control and measure the implemented hardware.
 
 We have a working full-network software reference, an INT8 software model, saved
-test vectors, and hardware parameter exports. We also have an experimentally
-verified parallel convolution design and a new, much smaller sequential Conv0
-design. **We do not yet have a complete ResNet running in hardware.**
+test vectors, and hardware parameter exports. Earlier Conv0 designs have recorded
+simulation/synthesis evidence. The latest 832-MAC Conv0 source integrates INT8
+output and an AXI DMA/CPU path but has not been HDL-compiled, synthesized or
+run on the board. **We do not yet have a complete ResNet running in hardware.**
+Start with the October 20 meeting briefing (detailed file retained locally)
+and [current source review](../rtl/kv260_conv0/REVIEW_AND_VALIDATION.md).
 
 | Part | Current status |
 |---|---|
@@ -24,8 +29,12 @@ design. **We do not yet have a complete ResNet running in hardware.**
 | Ten fixed golden images and all intermediate results | Generated |
 | Original parallel convolution RTL | Synthetic simulation passed; synthesis exceeds device capacity |
 | Single-MAC Conv0 RTL and testbench | User-reported synthetic run passed 79,872 comparisons; Python fixture skipped; synthesis pending |
-| 416-MAC Conv0 RTL and testbench | User-reported synthetic run passed 133,120 comparisons; Python fixture skipped; synthesis report pending |
-| Programmable convolution, residual, pooling, dense, and board integration | Remaining work |
+| 416-MAC Conv0 RTL and testbench | Synthetic run passed 133,120 comparisons; fixture skipped; local synthesis report found: 832 DSP, 16 BRAM36, 12,121 LUT, 14,337 FF, 229 I/O |
+| Cycle-by-cycle raw INT32 Conv0 model | Implemented for experimental Conv0 geometries and host timing; Python model, no HDL co-simulation |
+| INT8 Conv0 timing model | 832 MAC/104-output candidate; per-channel requantization/ReLU; AXI style stream/control trace; 564 golden-checked runs; 30 Python tests pass; mapping, clock and link remain estimated |
+| 832-MAC Conv0 RTL + DMA project + standalone A53 harness | Source written; fixed quantization constants; expanded raw/INT8 testbench unrun; no new HDL/synthesis/Vitis/board result |
+| Python verification | 32 tests pass on October 19; fixture arithmetic, bank equations and C payload hashes checked separately |
+| Programmable convolution, residual, pooling, dense, and board integration validation | Remaining work |
 
 ## 2. The complete flow
 
@@ -386,7 +395,9 @@ For the subsequent 416-MAC design, use `conv0_416_dsp.v`, `tb_conv0_416_dsp.sv`,
 and `setup_xsim_416.tcl`. [CONV0_416.md](../rtl/CONV0_416.md) describes its 16-spatial
 by 26-channel compute structure, replicated image memories, preload interface,
 and four-result output beats. The user-reported run passed five synthetic frames
-and 133,120 comparisons, with the Python fixture skipped. Synthesis results and
-implemented timing remain pending. See [PROGRESS_UPDATE.md](../PROGRESS_UPDATE.md)
+and 133,120 comparisons, with the Python fixture skipped. The subsequently found
+synthesis report and new [cycle model](../cycle_sim/README.md) are documented in
+cycle-model results (detailed file retained locally). Implemented timing remains pending.
+See the October 1 [PROGRESS_UPDATE.md](../PROGRESS_UPDATE.md)
 for the team's Conv0-first milestone and [reports/](../reports/README.md) for
 CPU timing and the reported RTL evidence.

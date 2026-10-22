@@ -1,0 +1,3 @@
+# Generated short-path Vivado builds; retain only this ignore rule.
+*
+!.gitignore

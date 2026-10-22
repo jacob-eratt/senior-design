@@ -1,0 +1,23 @@
+{
+  "description": "Latency-first Conv0 candidate from the Python AXIS/data sweep. 100 MHz, 256-bit AXIS and 2,000 MB/s are assumed, not measured. One DSP per INT8 multiplier plus LUT accumulation; all Conv0 INT32-to-INT8 requantization multipliers in LUTs. Requires new RTL and Vivado synthesis.",
+  "architecture": {"spatial_lanes": 32, "output_lanes": 104},
+  "axi": {
+    "clock_mhz": 100,
+    "stream_bits": 256,
+    "loader_bytes_per_cycle": 16,
+    "input_fifo_beats": 4,
+    "output_fifo_bytes": 2048,
+    "h2d_mbps": 2000,
+    "d2h_mbps": 2000,
+    "dma_setup_us": 2,
+    "d2h_setup_us": 0,
+    "completion_us": 1,
+    "burst_beats": 16,
+    "burst_gap_cycles": 2,
+    "sink_stall_probability": 0,
+    "axil_aw_delay": 0,
+    "axil_w_delay": 2,
+    "seed": 2608
+  },
+  "mapping": {"dsp_fraction": 1, "dsp_per_mac": 1, "requant_mapping": "fabric"}
+}

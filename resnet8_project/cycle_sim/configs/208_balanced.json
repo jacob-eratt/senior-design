@@ -1,0 +1,17 @@
+{
+  "description": "Provisional balanced Conv0 candidate: 208 MACs, eight INT32 outputs, 16-beat FIFO. 100 MHz and 1000 MB/s are assumptions, not measured hardware capabilities.",
+  "architecture": {"spatial_lanes": 8, "output_lanes": 8},
+  "host": {
+    "clock_mhz": 100,
+    "h2d_mbps": 1000,
+    "d2h_mbps": 1000,
+    "h2d_setup_us": 5,
+    "launch_us": 1,
+    "d2h_setup_us": 5,
+    "completion_us": 1,
+    "output_fifo_beats": 16,
+    "output_stall_probability": 0,
+    "seed": 2608
+  },
+  "resources": {"dsp_per_mac": 2, "reserve_dsp": 250, "reserve_bram36": 29}
+}

@@ -1,0 +1,18 @@
+{
+  "board": "KV260 / K26, xck26-sfvc784-2LV-c",
+  "capacity": {"dsp": 1248, "bram36": 144, "uram": 64, "lut": 117120, "ff": 234240, "iob": 189},
+  "capacity_source": "https://docs.amd.com/r/en-US/ds987-k26-som/Programmable-Logic",
+  "baseline": {
+    "design": "conv0_416_dsp",
+    "spatial_lanes": 16,
+    "output_lanes": 4,
+    "report_date": "2026-10-01 14:54:10",
+    "tool": "Vivado 2024.2",
+    "status": "synthesized; not placed/routed or timing-closed",
+    "resources": {"dsp": 832, "bram36": 16, "uram": 0, "lut": 12121, "ff": 14337, "iob": 229},
+    "source_sha256": "2d0f5f7d8d54cb35c9e0bd56a2fb655527c8f1f50d2c53ca5175acf2c1835159",
+    "report_path_from_repository": "feature_map/feature_map.runs/synth_1/conv0_416_dsp_utilization_synth.rpt",
+    "archived_report_from_project": "reports/conv0_416_dsp_utilization_synth.rpt",
+    "note": "Source and imported project copy matched when inspected on 2026-10-15; report-to-source association is contextual, not a netlist equivalence proof."
+  }
+}

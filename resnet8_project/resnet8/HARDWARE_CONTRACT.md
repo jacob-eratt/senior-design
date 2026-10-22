@@ -45,8 +45,12 @@ output[c] = clip(wide[c], relu ? 0 : -128, 127) # INT8
 `round_away` is nearest integer with **half ties away from zero**. The third term
 in `Sw` protects constant-output channels with near-zero kernels and nonzero BN
 offset. A static bound `128*sum(abs(Wq[c])) + abs(bq[c]) <= 2**31-1` is checked for
-every weighted layer, ensuring partial MAC sums and bias cannot overflow. Overflow
-is an error, not wrapping or saturating the accumulator.
+every weighted layer, ensuring partial MAC sums and bias cannot overflow for the
+exported network. The software reference rejects overflow as a contract error.
+The fixed-width hardware accumulator wraps modulo 2**32 on arbitrary overflowing
+test operands; it does not saturate or raise an overflow flag. Valid exported
+parameters avoid this distinction through the bound above. Directed RTL overflow
+tests must use a wrapping oracle, not bypass the software export safety check.
 
 `M` is a positive signed INT32 multiplier representing a Q31 significand. For
 `ratio=f*2**e`, with `0.5 <= f < 1`, set `M=round(f*2**31)`, `R=31-e`, normalizing

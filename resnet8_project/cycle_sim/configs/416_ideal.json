@@ -1,0 +1,6 @@
+{
+  "description": "Existing 416-MAC core, no host bandwidth bottleneck; preload and one-cycle FIFO delivery still counted.",
+  "architecture": {"spatial_lanes": 16, "output_lanes": 4},
+  "host": {"clock_mhz": 100, "h2d_mbps": null, "d2h_mbps": null, "output_fifo_beats": 16},
+  "resources": {"dsp_per_mac": 2, "reserve_dsp": 0, "reserve_bram36": 0}
+}

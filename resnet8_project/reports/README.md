@@ -1,5 +1,39 @@
 # Recorded measurements
 
+## October 16 update: INT8/AXI latency model
+
+The newer [latency first INT8 study](../cycle_sim/AXI_INT8_STUDY.md) supersedes
+the earlier raw INT32 egress comparison. It models the trained Conv0 multiplier,
+requantization, rounding, ReLU and INT8 saturation, then carries data through
+AXI style stream and control handshakes. The resource screen (detailed file retained locally),
+timing sweep (detailed file retained locally), and run summary (detailed file retained locally)
+are archived. Its recommended design is a Python prediction. No RTL was
+written or synthesized as part of the new study.
+
+The expanded Conv0 architecture study (detailed file retained locally)
+records 396 Python cycle/data runs and DSP/LUT sensitivity screens. Its
+timing table (detailed file retained locally),
+resource scenarios (detailed file retained locally), and
+run summary (detailed file retained locally) are archived here. All
+10,543,104 sweep output values matched the fixture; 22 Python tests passed.
+These are simulated timings and assumed resource ranges, except for the
+explicitly identified existing synthesis baseline.
+
+## October 15 update: synthesis report and cycle model
+
+The existing [416-MAC synthesis report](conv0_416_dsp_utilization_synth.rpt) was
+found in the local Vivado build directory and archived here. It records 832
+DSPs, 16 BRAM36 tiles, 12,121 LUTs, 14,337 registers, and 229 bonded I/O sites.
+The latter exceeds the reported 189 available sites; internal integration is
+required. No implementation timing result was found or generated.
+
+The [Python cycle simulator](../cycle_sim/README.md) models the existing core
+and experimental variants, with configurable host transfer delays/bandwidth.
+Cycle-model results (detailed file retained locally) report 19 passing software tests
+and golden-output-checked sweeps. This new evidence supersedes the synthesis
+availability note in the October 1 history below; it does not replace RTL
+golden-fixture validation or constitute an FPGA timing measurement.
+
 ## CPU Conv0, October 1, 2026
 
 [cpu_conv0_benchmark.json](cpu_conv0_benchmark.json) records a local run on an

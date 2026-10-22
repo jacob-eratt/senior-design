@@ -1,3 +1,68 @@
+> **Publication status, October 21:** simulation, integrated routing/timing, and bitstream/XSA export have completed. Vitis compilation and board execution remain pending. Historical unrun statements below are superseded by [current status](CURRENT_STATUS.md).
+
+# ResNet-8 team update — October 19, 2026
+
+The selected 832-MAC Conv0 candidate now has source RTL, an AXI DMA/PS project
+script, a standalone A53 benchmark, and deployment instructions. It includes
+INT8 requantization and ReLU. Quantization constants are fixed at build time;
+the incoming quantization packet verifies them. Image, weights and bias remain
+runtime-loadable. **The new source has not been HDL-compiled/simulated,
+synthesized, routed, Vitis-compiled or run on the board.**
+
+For the October 20 meeting, start with the
+Ericsson briefing (detailed file retained locally),
+[latency/network analysis](reports/meeting_2026_10_20/ANALYSIS.md), and
+[source review and validation gates](rtl/kv260_conv0/REVIEW_AND_VALIDATION.md).
+The latest testbench adds raw INT32 checking, deliberate FIFO backpressure,
+malformed packets and reset recovery; these new HDL checks have not run.
+The UART summarizer now rejects incomplete/failed benchmark captures.
+Fourteen additional ready-to-run fixture cases cover the ten archived images
+and four synthetic arithmetic stress cases. Python independently matched the
+archived raw/INT8 tensors and validated generated hashes; these are not HDL runs.
+
+All 32 Python tests passed on October 19. The layout checker again matched
+26,624 raw sums and 26,624 INT8 outputs, exercised 100,000 FIFO banking steps,
+and checked C fixture hashes. These are Python checks, not proof of RTL behavior.
+
+Export-derived full-network arithmetic totals 32,562,192 convolution/dense MAC
+terms, of which Conv0 is 2.21%. New analytic latency budgets expose per-packet
+DMA setup and CPU overhead sensitivity; they are assumptions, not measurements.
+The earlier 19.47 us remains a Python model result. The next gate is the new
+testbench PASS, followed by measured DSP mapping, integrated fit/routed timing,
+and board golden comparisons and end-to-end latency.
+
+The updates below are historical checkpoints and describe status on their dates.
+
+# ResNet-8 team update — October 16, 2026
+
+## New latency first INT8 Conv0 result
+
+We extended the cycle level Python model so Conv0 now sends its trained INT8
+activation values after the exported per-channel requantization, rounding,
+ReLU and saturation. The model has AXI4 Stream style input/output handshakes
+and AXI4 Lite start/status registers. Its per-clock trace records AXI signals,
+core tap/address activity, local memory write bytes, and FIFO/backpressure.
+
+The 540 main cold-frame architecture/transport combinations and 24 clock and
+parameter-residency cases checked 15,015,936 raw INT32 values and the same
+number of INT8 outputs against the fixture; every comparison passed. The
+latency first candidate is 832 MAC lanes, 104 INT8 outputs per core beat, a
+256-bit stream, and 16-byte-per-clock local loader. Under the selected 100 MHz,
+2,000 MB/s, 2 us DMA setup assumptions it predicts 19.47 us end-to-end. A
+slightly slower 832-MAC/52-output fallback predicts 20.63 us and places the
+requantizer in DSPs to reduce its LUT estimate.
+
+The DSP/LUT and banked-memory resource figures remain estimates. The fastest
+candidate is close to the estimated LUT and BRAM limits. No RTL was generated,
+no Vivado synthesis or HDL simulation was run, and neither 100 MHz closure nor
+the assumed host bandwidth has been demonstrated. The next hardware step is
+to implement/synthesize its INT8 multiplier plus LUT accumulator, requantizer,
+and byte-banked buffers, then replace the host/link assumptions with measured
+KV260 transfer rates. Details, reproducible commands, and traces are in
+[AXI_INT8_STUDY.md](cycle_sim/AXI_INT8_STUDY.md).
+
+The earlier October 1 update follows as a historical checkpoint.
+
 # ResNet-8 team update — October 1, 2026
 
 Our immediate milestone is **one correct, implementable Conv0 accelerator**.

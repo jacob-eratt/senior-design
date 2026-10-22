@@ -1,0 +1,17 @@
+{
+  "description": "Illustrative numbers only; these are not measured KV260 DMA specifications.",
+  "architecture": {"spatial_lanes": 16, "output_lanes": 4},
+  "host": {
+    "clock_mhz": 100,
+    "h2d_mbps": 500,
+    "d2h_mbps": 500,
+    "h2d_setup_us": 5,
+    "launch_us": 1,
+    "d2h_setup_us": 5,
+    "completion_us": 1,
+    "output_fifo_beats": 16,
+    "output_stall_probability": 0,
+    "seed": 2608
+  },
+  "resources": {"dsp_per_mac": 2, "reserve_dsp": 0, "reserve_bram36": 0}
+}
