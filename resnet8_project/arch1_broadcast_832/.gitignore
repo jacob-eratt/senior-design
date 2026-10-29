@@ -1,0 +1,6 @@
+build/
+vitis_workspace/
+*.jou
+*.log
+.Xil/
+__pycache__/

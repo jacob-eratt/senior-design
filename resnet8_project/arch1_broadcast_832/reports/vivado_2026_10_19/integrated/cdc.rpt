@@ -1,0 +1,20 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date              : Mon Oct 19 11:36:17 2026
+| Host              : IBIXPS running 64-bit major release  (build 9200)
+| Command           : report_cdc -file C:/Users/Ibrah/Desktop/ECE_364D/senior-design/.vivado/kv260_20261019_040420/reports/cdc.rpt
+| Design            : system_wrapper
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Design State      : Routed
+| Temperature Grade : C
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+Severity  Source Clock  Destination Clock  CDC Type                 Exceptions               Endpoints  Safe  Unsafe  Unknown  No ASYNC_REG  
+--------  ------------  -----------------  -----------------------  -----------------------  ---------  ----  ------  -------  ------------  
+Warning   clk_pl_1      clk_pl_0           No Common Primary Clock  Max Delay Datapath Only        271   271       0        0             0  
+Warning   clk_pl_0      clk_pl_1           No Common Primary Clock  Max Delay Datapath Only        462   462       0        0             0  
+

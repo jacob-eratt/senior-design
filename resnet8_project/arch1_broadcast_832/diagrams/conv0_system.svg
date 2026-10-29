@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="910" viewBox="0 0 1540 910" role="img" aria-labelledby="title desc">
+<title id="title">KV260 Conv0: from CPU request to checked result</title><desc id="desc">CPU and DDR supply an AXI DMA, FPGA input memories, 832 MACs, output scaling and FIFO. Results return to DDR for CPU checking. Timing and board validation status are explicitly separated.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172033}.title{font-size:32px;font-weight:700}.head{font-size:23px;font-weight:700}.body{font-size:18px}.small{font-size:15px}.label{font-size:16px;font-weight:700}</style>
+<text x="40" y="50" class="title" text-anchor="start">KV260 Conv0 | from image to checked feature map</text>
+<text x="40" y="82" class="body" text-anchor="start">Current hardware: first layer only. Full ResNet-8 classification remains future FPGA work.</text>
+<rect x="40" y="120" width="340" height="180" rx="16" fill="#eff6ff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="60" y="154" class="head" text-anchor="start">1  CPU + DDR</text>
+<text x="60" y="185" class="body" text-anchor="start">A53 prepares aligned buffers</text>
+<text x="60" y="210" class="body" text-anchor="start">Image: 3,072 INT8 bytes</text>
+<text x="60" y="235" class="body" text-anchor="start">Weights: 702 B; bias: 104 B</text>
+<text x="60" y="260" class="body" text-anchor="start">Flush cache before DMA</text>
+<rect x="420" y="120" width="300" height="180" rx="16" fill="#eff6ff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="440" y="154" class="head" text-anchor="start">2  DMA transport</text>
+<text x="440" y="185" class="body" text-anchor="start">MM2S: DDR to FPGA</text>
+<text x="440" y="210" class="body" text-anchor="start">S2MM: FPGA to DDR</text>
+<text x="440" y="235" class="body" text-anchor="start">256-bit streams</text>
+<text x="440" y="260" class="body" text-anchor="start">CPU selects packet + START</text>
+<rect x="760" y="120" width="740" height="180" rx="16" fill="#f0fdf4" stroke="#cbd5e1" stroke-width="2"/>
+<text x="780" y="154" class="head" text-anchor="start">3  FPGA local storage</text>
+<text x="780" y="185" class="body" text-anchor="start">Image: 32 replicated BRAM copies, each with 4 banks</text>
+<text x="780" y="210" class="body" text-anchor="start">Weights: 26 local register banks, 27 INT8 weights per bank</text>
+<text x="780" y="235" class="body" text-anchor="start">Bias: 26 local INT32 registers, one per output channel</text>
+<text x="780" y="260" class="body" text-anchor="start">Quantization constants compiled in; packet only verifies them</text>
+<path d="M380,210 L420,210" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M720,210 L760,210" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="760" y="355" width="740" height="185" rx="16" fill="#dcfce7" stroke="#cbd5e1" stroke-width="2"/>
+<text x="780" y="389" class="head" text-anchor="start">4  Reused compute array: 832 MACs</text>
+<text x="780" y="420" class="body" text-anchor="start">32 image positions × 26 output channels = one output row</text>
+<text x="780" y="445" class="body" text-anchor="start">Each MAC: INT8 × INT8 product + INT32 running sum</text>
+<text x="780" y="470" class="body" text-anchor="start">27 product terms per result; initialize sum from channel bias</text>
+<text x="780" y="495" class="body" text-anchor="start">One DSP multiplier per MAC; accumulation in LUT/carry fabric</text>
+<path d="M1130,300 L1130,355" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="40" y="355" width="340" height="185" rx="16" fill="#eff6ff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="60" y="389" class="head" text-anchor="start">CPU control path</text>
+<text x="60" y="420" class="body" text-anchor="start">AXI-Lite register writes</text>
+<text x="60" y="445" class="body" text-anchor="start">LOAD_KIND → load packets</text>
+<text x="60" y="470" class="body" text-anchor="start">Arm output DMA → START</text>
+<text x="60" y="495" class="body" text-anchor="start">Poll status / DMA errors</text>
+<rect x="420" y="355" width="300" height="185" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="440" y="389" class="head" text-anchor="start">Flow control</text>
+<text x="440" y="420" class="body" text-anchor="start">FIFO buffers absorb bursts</text>
+<text x="440" y="445" class="body" text-anchor="start">Valid/ready handshakes</text>
+<text x="440" y="470" class="body" text-anchor="start">Full FIFO pauses compute</text>
+<text x="440" y="495" class="body" text-anchor="start">No output may be dropped</text>
+<path d="M380,450 L420,450" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<path d="M720,450 L760,450" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="760" y="595" width="740" height="135" rx="16" fill="#f0fdf4" stroke="#cbd5e1" stroke-width="2"/>
+<text x="780" y="629" class="head" text-anchor="start">5  Convert + drain</text>
+<text x="780" y="660" class="body" text-anchor="start">104 lanes: scale → round → ReLU → saturate to 0..127</text>
+<text x="780" y="685" class="body" text-anchor="start">2 KB FIFO → 256-bit output stream → S2MM → DDR</text>
+<text x="780" y="710" class="body" text-anchor="start">Output packet: 26,624 INT8 bytes; final TLAST</text>
+<path d="M1130,540 L1130,595" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="40" y="595" width="680" height="135" rx="16" fill="#eff6ff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="60" y="629" class="head" text-anchor="start">6  CPU receives and checks</text>
+<text x="60" y="660" class="body" text-anchor="start">Wait for DMA; invalidate cache; stop request timer</text>
+<text x="60" y="685" class="body" text-anchor="start">Compare every output byte + check buffer guards</text>
+<text x="60" y="710" class="body" text-anchor="start">Checks / UART printing occur after the timed request</text>
+<path d="M760,662 L720,662" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="40" y="775" width="1460" height="105" rx="16" fill="#fff7ed" stroke="#cbd5e1" stroke-width="2"/>
+<text x="60" y="809" class="head" text-anchor="start">Evidence and next gate</text>
+<text x="60" y="840" class="body" text-anchor="start">RTL simulation and routed timing passed; bitstream/XSA exported. Vitis build and board execution pending.</text>
+<text x="60" y="865" class="body" text-anchor="start">1,239 simulated run cycles excludes preload/CPU overhead. Actual cold/warm request latency is not measured.</text>
+</svg>

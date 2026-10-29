@@ -1,0 +1,372 @@
+{
+  "tool": "Vivado/XSim 2024.2",
+  "hdl_frames": 30,
+  "distinct_saved_images": 10,
+  "synthetic_cases": 4,
+  "baseline_repeats_one_saved_image": true,
+  "raw_comparisons": 798720,
+  "int8_comparisons": 798720,
+  "frames": [
+    {
+      "case": "00000_cat",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00000_cat",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00001_ship",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00001_ship",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00003_airplane",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00003_airplane",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00004_frog",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00004_frog",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00006_automobile",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00006_automobile",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00011_truck",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00011_truck",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00012_dog",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00012_dog",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00013_horse",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00013_horse",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00022_deer",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00022_deer",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "00025_bird",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "00025_bird",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "baseline",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "baseline",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "synthetic_signed",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "synthetic_signed",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "synthetic_wrap_negative",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "synthetic_wrap_negative",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "synthetic_wrap_positive",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "synthetic_wrap_positive",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    },
+    {
+      "case": "synthetic_zero",
+      "frame": 1,
+      "warm": false,
+      "stalls": false,
+      "bytes": 26624,
+      "run_cycles": 1239
+    },
+    {
+      "case": "synthetic_zero",
+      "frame": 2,
+      "warm": true,
+      "stalls": true,
+      "bytes": 26624,
+      "run_cycles": 1752
+    }
+  ],
+  "components": {
+    "mac_int8_mixed": {
+      "LUT": 33,
+      "logic_LUT": 33,
+      "LUTRAM": 0,
+      "SRL": 0,
+      "FF": 32,
+      "RAMB36": 0,
+      "RAMB18": 0,
+      "URAM": 0,
+      "DSP": 1
+    },
+    "conv0_requant": {
+      "LUT": 45918,
+      "logic_LUT": 45918,
+      "LUTRAM": 0,
+      "SRL": 0,
+      "FF": 9963,
+      "RAMB36": 0,
+      "RAMB18": 0,
+      "URAM": 0,
+      "DSP": 0
+    },
+    "conv0_result_fifo": {
+      "LUT": 3239,
+      "logic_LUT": 2599,
+      "LUTRAM": 640,
+      "SRL": 0,
+      "FF": 73,
+      "RAMB36": 0,
+      "RAMB18": 0,
+      "URAM": 0,
+      "DSP": 0
+    },
+    "conv0_832_core": {
+      "LUT": 38658,
+      "logic_LUT": 38658,
+      "LUTRAM": 0,
+      "SRL": 0,
+      "FF": 33621,
+      "RAMB36": 0,
+      "RAMB18": 128,
+      "URAM": 0,
+      "DSP": 832
+    }
+  },
+  "board_execution": false,
+  "cpu_benchmark_execution": false,
+  "source_sha256": {
+    "src/conv0_832_core.sv": "84452613056cb216902aefbd82b2a300885b87d328b4f7d1ea6222595f696c21",
+    "src/conv0_axi_top.sv": "da64c1f57ccca9dce553eb036eb4755ef5f3de74578cf5fd446d48b29a8b397b",
+    "src/conv0_quant_pkg.sv": "68af88d3a07e6f0b58be5bdb5554472eac5ea11d2e25d8de5e0e9bf5f8d52734",
+    "src/conv0_requant.sv": "f389bae68f4cc86db6cee83d79471c6335b5e4b9fe89948d1ac661708b1f4521",
+    "src/conv0_result_fifo.sv": "7c87797696ff89dad145bc65569c64a76747bd485be56645c412630b08083606",
+    "src/mac_int8_mixed.sv": "11a2efe663fd3226191667c476f5d1c5aad8e0e009c450c27feff60769b4d50b",
+    "src/conv0_axi_bd.v": "70316800120bcf02f44d2eb20896432f04212f1a0f97dbdb01804459ea68f96e",
+    "sim/tb_conv0_axi.sv": "aeeadf00dd4d914bc697246263fb95cb949d79dbbfe136e6ee2be2ed597c4d36",
+    "scripts/build.tcl": "be0431512e836cf2606627c8984343b45370a01166a6d9b8b72698e571c08732",
+    "scripts/create_project.tcl": "0ca00be073541e0e9e97b99412c8fbf4d5ff4c6f8ad95bfc8c06424b9424158b",
+    "scripts/resume_export.tcl": "a81f889236295f2ef23fcbf468c8d83d3c3dac9e3f5b7ff79b02bda18c6f913e",
+    "scripts/run_integrated.tcl": "f0c770b766eea683040c47a9f0c400e4cb6aa255ccc0a9523a10ff5b41a6a463",
+    "scripts/run_no_waves.tcl": "8c02043916eca8b2d9c9034c0a06a374b07fc426061e2db3eedf142ef54e6ef6",
+    "scripts/simulate.tcl": "b1933e6502777d80cf6ead5d4ce6653867c0c8f33bce51816e431f59d69b9778",
+    "scripts/synth_components.tcl": "a76b2fc6ccb06c6b7612e978a5d29cd8a26cc41467da524f15910f1b20e1f447",
+    "scripts/validate_and_synth.tcl": "ccc1ca6b9c19c69b7d71f63cf326e8c208ea6dc7a20e581d0006f2bd4839fe4b",
+    "cpu/benchmark.c": "45e48cec288842335b44c6cb60a322eaf3593bd1a3cd9f3c6ba94b87f2f4c71c",
+    "cpu/fixture_manifest.json": "f5908d452a0ff921e7bea3ce186130aeabdcb43461ead01810977c54853ed3f8"
+  },
+  "archive_sha256": {
+    "simulation/00000_cat.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00001_ship.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00003_airplane.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00004_frog.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00006_automobile.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00011_truck.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00012_dog.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00013_horse.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00022_deer.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/00025_bird.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/baseline.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/synthetic_signed.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/synthetic_wrap_negative.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/synthetic_wrap_positive.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "simulation/synthetic_zero.log": "89dbc6e44cbfeebc7f171e40cb25fb79ac39d50bf552d88ec95ec9a4f88dd844",
+    "components/mac_int8_mixed/check_timing.rpt": "5470d5bc6072c094c23633c17abe049ce7a81a3141d7338c5a4a673ee032ef1c",
+    "components/mac_int8_mixed/timing_synth.rpt": "dae1c318e7d4e470e13a4ff74574b08717807bcd46243be4e1f93e5f24451b9f",
+    "components/mac_int8_mixed/utilization_synth.rpt": "88e72b8ef8b5f3c8efbf3587dfc9c093b802e8ae15bee345243448a3565aa4b8",
+    "components/conv0_requant/check_timing.rpt": "41deb0db0900274a686300bb4cd9dd3bd1e2728ff72dafecddd7b0446c611ead",
+    "components/conv0_requant/timing_synth.rpt": "c4d2d1ab6099c32d72d9ffbd3afb0cefb5910c521c1b9ca9308c51e4be38cb82",
+    "components/conv0_requant/utilization_synth.rpt": "7e38d8ed3b6a0e44aa49476130e490fe63faa0acb33ba0d05b4f694c416156bb",
+    "components/conv0_result_fifo/check_timing.rpt": "da7e9b61c5375239c0888fcee40c1b43b1e0f67aed966e38af7d08ecfdae8c9a",
+    "components/conv0_result_fifo/timing_synth.rpt": "ea0b16cb5ebc611ad2a6c6d83e85f9bbbe30705b255eb13bd7129ff9a41e8dd1",
+    "components/conv0_result_fifo/utilization_synth.rpt": "fdfee0cf25bcb865e52d729bf37091ce461ea29c2b776ae8b0ee01f547cad145",
+    "components/conv0_832_core/check_timing.rpt": "b8e56df943b07fa249c4c0614b689344e8cee1c2b85d6a0f46ceab028f5b5201",
+    "components/conv0_832_core/timing_synth.rpt": "0d1c3b27749e5022b626c5934c19d5e70b594056e62041c1c8eb8b00e358a520",
+    "components/conv0_832_core/utilization_synth.rpt": "9c730014444f1ae26f99ec7cea1356bcd9e79f82582972b60dae641adcc47940",
+    "integrated/cdc.rpt": "3bf733b25c191bff76daf385650d68b03f65ec1c098c6543dd0d364bc99f6b70",
+    "integrated/check_timing.rpt": "ab2d1a5dba1e6b5b5c03e107e6278f8a6459c77e96e45bc078b1641be282b9e8",
+    "integrated/clocks.rpt": "8b698774842a4262db1fd28fe4cb27f16069f376d1907555a877cd361d8ce875",
+    "integrated/drc.rpt": "b2cc435bd8f09af06ed90cf473303a67a6dd43e4d7f588025337722bd5ade29c",
+    "integrated/timing_route.rpt": "b4dde9ee319db62ff393f244a797238b53bdf4c7c95b58e0c3ec27ea223d5026",
+    "integrated/utilization_route.rpt": "ab6f248bb3a1222b6ef247c73faa583f852fead62ee50b05a0dff017fa5ec07a",
+    "integrated/utilization_synth.rpt": "ed1e55ac7e6cfddcbeafef907c268c3e555666991cb1de9f33de6ddaf46f7ef1",
+    "tool_logs/validation_synth.log": "4e5f10161cd7c0318845423d136c526c1f302878501be814216ceeea736bf405",
+    "tool_logs/integrated.log": "52139daadb2c2f88fb618b67af706d5f3ff84a320c4d3363a422bb552445cab1",
+    "tool_logs/sim_initial.log": "189fd052d18c29011986a58e269e17b34b3ee95803790768f56bb01a59b0f250",
+    "tool_logs/export.log": "9b1ef09922aae53ccca6af66fcbe6854fd7780b82bda00855d5701968781fa46"
+  },
+  "provenance_note": "Source hashes are archive-time fingerprints, not proof of original build revision. The 30-frame suite used the direct top; the later wrapper baseline is separate.",
+  "vitis_compiled": false,
+  "integrated_project": "C:\\Users\\Ibrah\\Desktop\\ECE_364D\\senior-design\\.vivado\\kv260_20261019_040420\\conv0_kv260.xpr",
+  "integrated_artifacts": {
+    "conv0_kv260.bit": {
+      "exists": true,
+      "sha256": "e75e66dd48adac68b37c75a0d419159e856b33e868058b0d1127759f47c384bb"
+    },
+    "conv0_kv260.xsa": {
+      "exists": true,
+      "sha256": "04683c56aac67ce0874b8b04ee15b25717faa624f634dc8c1d689fd56354157e"
+    }
+  }
+}

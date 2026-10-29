@@ -54,5 +54,5 @@ both predictions, probabilities and source/export identities are in
 
 At the time of this software baseline, no RTL had been written or measured.
 Subsequent RTL work and the user-reported Vivado results are documented in
-[TEAM_OVERVIEW.md](TEAM_OVERVIEW.md). The new shared Conv0 engine and full-network
+../arch1_broadcast_832/CURRENT_STATUS.md. The new shared Conv0 engine and full-network
 hardware acceptance gates remain open.

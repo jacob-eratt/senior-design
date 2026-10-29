@@ -1,52 +1,42 @@
 # ResNet-8 project
 
-All ResNet-8 software, starter convolution RTL, tests, documentation, pretrained
-assets, and generated golden vectors are grouped here.
-
-Start with the [team architecture and development overview](resnet8/TEAM_OVERVIEW.md)
-for the complete flow, current verification status, and remaining goals.
-For a shareable status message, see [PROGRESS_UPDATE.md](PROGRESS_UPDATE.md).
-The immediate milestone is a verified, implementable Conv0 layer; CPU/FPGA
-transfer overhead and full-network integration follow that milestone.
+Hardware acceleration of INT8 ResNet-8 (CIFAR-10) on the AMD KV260. The shared
+software golden model sits at the top; each hardware architecture has its own
+folder with an `ARCHITECTURE.md`.
 
 ```text
 resnet8_project/
-  run_resnet.py                 Image classification and tensor dumps
-  prepare_resnet.py             Golden-vector generation and evaluation
-  export_model.py               Quantization and hardware memory export
-  verify_resnet.py              Saved-vector and export verification
-  benchmark_conv0.py            CPU-only Conv0 timing with resident operands
-  fixtures/                    Small portable Conv0 golden memory images
-  reports/                     CPU measurements and reported RTL results
-  requirements-resnet.txt       Pinned Python dependencies
-  tests/                       Integer arithmetic tests
-  rtl/
-    mac_int8.v                 Signed INT8 MAC with INT32 accumulator
-    pixel.v                    27 parallel MACs for one output pixel
-    conv_1024_pixels.v          1024 parallel pixels, one output channel (area experiment)
-    conv0_serial_dsp.v          One DSP MAC reused over full Conv0
-    conv0_416_dsp.v             416 MAC lanes with local memories and streamed output
-    tb_conv0_416_dsp.sv          Self-checking 416-lane Conv0 testbench
-    CONV0_416.md                Architecture, ports, and Vivado setup for 416 lanes
-    RESOURCE_REUSE.md           Resource tradeoff and memory protocol
-    tb_conv_1024.sv             Self-checking convolution testbench
-    tb_conv0_serial_dsp.sv      Shared Conv0 testbench with memory models
-    SERIAL_SIMULATION.md       New Conv0 testbench setup and coverage
-    SIMULATION.md              Vivado simulation setup and test coverage
-  resnet8/
-    fp32.py                    Instrumented TensorFlow reference
-    integer.py                 Integer hardware reference
-    export.py                  Binary and .mem format implementation
-    common.py, data.py          Shared utilities and CIFAR-10 loading
-    README.md                  Detailed setup and usage
-    ARCHITECTURE.md             Frozen architecture
-    HARDWARE_CONTRACT.md        Arithmetic, memory layout, future RTL gates
-    RESULTS.md                 Measured verification results
-    *_baseline.json            Recorded predictions and verification evidence
-    environment-verified.txt   Installed-package record
-    upstream/                  Official sources, weights, license, provenance
-    artifacts/                 Generated vectors, exports, images, and dataset
+  resnet8/                    Shared golden model (all architectures verify against it)
+    fp32.py, integer.py         FP32 TensorFlow reference, bit-exact INT8/INT32 reference
+    export.py, common.py, data.py
+    HARDWARE_CONTRACT.md        Arithmetic, rounding, layouts, binary export format
+    README.md, RESULTS.md       Setup and verified software results
+    upstream/, artifacts/       Official weights/sources; generated vectors (git-ignored)
+  run_resnet.py               Classify an image, dump tensors
+  prepare_resnet.py           Generate golden vectors
+  export_model.py             Fold BatchNorm, quantize, export weights/bias/quant/config
+  verify_resnet.py            Recheck golden files and exports
+  benchmark_conv0.py          CPU-only Conv0 timing baseline
+  fixtures/                   Portable Conv0 golden memory images (used by RTL testbench)
+  tests/                      Integer reference and UART-capture tests
+  uarch_study/                Step-by-step microarchitecture discussion and decision log
+
+  arch1_broadcast_832/        EXISTING: Conv0-only, 832 broadcast MACs, 100 MHz
+    ARCHITECTURE.md             How it works (diagrams in diagrams/)
+    CURRENT_STATUS.md           Measured simulation/synthesis/routing status
+    README.md                   RTL, AXI DMA interface, register map
+    KV260_BUILD_AND_BENCHMARK.md, REVIEW_AND_VALIDATION.md
+    src/ sim/ scripts/ tools/ cpu/   RTL, testbench, Vivado Tcl, Python helpers, A53 benchmark
+    docs/                       AXI/INT8 design study, technical evidence map
+    reports/                    Archived Vivado/XSim reports, meeting analysis, CPU baseline
+
+  arch2_os_systolic_26x32/    PROPOSED: output-stationary systolic conv engine, all layers
+    ARCHITECTURE.md
+  arch3_ws_tpu_27x26/         ALTERNATIVE: weight-stationary (TPU-style) conv engine
+    ARCHITECTURE.md
 ```
+
+Comparison of the three: [uarch_study/03b_performance_comparison.md](uarch_study/03b_performance_comparison.md).
 
 Run from this directory:
 
@@ -57,23 +47,9 @@ cd resnet8_project
 ..\.venv-resnet\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The existing `.venv-resnet/` stays at the repository root because Python virtual
-environments contain location-dependent launchers. Repository-wide Git settings
-also remain at the root. Generated `artifacts/` content is ignored by Git.
+The `.venv-resnet/` environment stays at the repository root. Generated
+`resnet8/artifacts/` content is ignored by Git.
 
-[Detailed instructions](resnet8/README.md) · [Results](resnet8/RESULTS.md) ·
-[Architecture](resnet8/ARCHITECTURE.md) · [Hardware contract](resnet8/HARDWARE_CONTRACT.md)
-
-For the parallel RTL, follow [Vivado simulation instructions](rtl/SIMULATION.md).
-For the reusable Conv0 engine, see [RESOURCE_REUSE.md](rtl/RESOURCE_REUSE.md).
-The user-reported parallel-core simulation passed its synthetic tests; its Python
-fixture was skipped, and synthesis exceeded device resources. The new shared
-Conv0 engine has a [dedicated testbench](rtl/SERIAL_SIMULATION.md); the user-reported
-run passed three synthetic frames (79,872 comparisons) with the Python fixture
-skipped. Synthesis results for that engine remain pending.
-
-The [416-MAC Conv0 engine and testbench](rtl/CONV0_416.md) passed the user-reported
-five-frame synthetic run (133,120 comparisons). The Python fixture was skipped;
-synthesis and implementation results remain pending. The Vivado setup scripts
-can use the checked-in [portable fixture](fixtures/README.md) on a fresh clone.
-See [recorded measurements](reports/README.md) for evidence and CPU timing scope.
+Earlier work retained from `main` in `rtl/`, `reports/`, and the historical onboarding notes includes the
+RTL experiments (single-pixel, 1024-pixel, serial and 416-MAC Conv0). The Python
+cycle model `cycle_sim/` and its sweep scripts remain recoverable from `origin/resnet8-conv0`.

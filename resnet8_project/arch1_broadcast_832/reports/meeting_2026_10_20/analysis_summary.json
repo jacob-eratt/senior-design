@@ -1,0 +1,10 @@
+{
+  "mac_terms": 32562192,
+  "weights_bytes": 203190,
+  "bias_bytes": 2224,
+  "quant_bytes": 4504,
+  "unfused_activation_DDR_bytes": 442586,
+  "export_manifest_sha256": "019bbf4bea132b9e0bc032aa0bd84e6cd00fcdba1865ee2bfa37614d7ea1e61b",
+  "conv0_mac_fraction": 0.022076155069658703,
+  "resident_network_external_activation_bytes": 3082
+}

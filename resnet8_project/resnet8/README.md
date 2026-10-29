@@ -4,7 +4,7 @@ This implements Phases 0–3 and supplies software fixtures and an interface con
 for Phases 4–5. RTL development is underway: the parallel convolution passed the
 user-reported synthetic simulation but exceeds the FPGA resources. The single-MAC
 and 416-MAC Conv0 designs also passed reported synthetic tests; their pretrained
-fixture checks and implementation evidence remain pending. See [TEAM_OVERVIEW.md](TEAM_OVERVIEW.md) for the
+fixture checks and implementation evidence remain pending. See ../arch1_broadcast_832/ARCHITECTURE.md for the
 full design flow, current evidence, and remaining goals. Existing MNIST work is separate.
 See [measured results](RESULTS.md): FP32 89.2%, INT8 87.9% on 1,000 held-out images.
 

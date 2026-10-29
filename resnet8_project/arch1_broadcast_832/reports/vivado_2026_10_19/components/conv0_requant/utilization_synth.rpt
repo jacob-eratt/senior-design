@@ -1,0 +1,28 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Oct 19 03:55:40 2026
+| Host         : IBIXPS running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/Ibrah/Desktop/ECE_364D/senior-design/resnet8_project/rtl/kv260_conv0/build/components/conv0_requant/utilization_synth.rpt
+| Design       : conv0_requant
+| Device       : xck26-sfvc784-2LV-c
+| Speed File   : -2LV
+| Design State : Synthesized
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------+--------+------------+------------+---------+------+------+--------+--------+------+------------+
+|    Instance   | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++---------------+--------+------------+------------+---------+------+------+--------+--------+------+------------+
+| conv0_requant |  (top) |      45918 |      45918 |       0 |    0 | 9963 |      0 |      0 |    0 |          0 |
++---------------+--------+------------+------------+---------+------+------+--------+--------+------+------------+
+
+

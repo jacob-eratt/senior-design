@@ -1,5 +1,5 @@
 {
-  "description": "Full Conv0 raw INT32 accumulator fixture, CIFAR-10 test index 3, airplane",
+  "description": "Conv0 INT8 input/weights, raw INT32 accumulator and requantized INT8/ReLU output; CIFAR-10 test index 3, airplane",
   "checkpoint_sha256": "7e469415849ea0be2d5a6cb988a0840e2ffc4184ee1bdff3442a2f1ae4774fdf",
   "export_manifest_sha256": "019bbf4bea132b9e0bc032aa0bd84e6cd00fcdba1865ee2bfa37614d7ea1e61b",
   "files": {
@@ -22,6 +22,16 @@
       "elements": 26624,
       "bits_per_element": 32,
       "sha256": "1c11bc15382e00c5f113638acc91a8629ab3842e0a3e6f2cedd953f7c6466b32"
+    },
+    "export/conv0_quant.mem": {
+      "elements": 52,
+      "bits_per_element": 32,
+      "sha256": "d88edc9b8c313ad2546d490c59ac3dcc1c53bce24095930a4518149f0e04089a"
+    },
+    "layer_vectors/conv0/expected_output.mem": {
+      "elements": 26624,
+      "bits_per_element": 8,
+      "sha256": "5a562685dda827bd60b61891c721b6427e82b72c462fcdecd92d998aa4026218"
     }
   }
 }

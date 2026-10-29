@@ -1,0 +1,25 @@
+{
+  "sweep_runs": 564,
+  "grid_runs": 540,
+  "sensitivity_runs": 24,
+  "total_raw_accumulator_values_checked": 15015936,
+  "total_quantized_values_checked": 15015936,
+  "all_output_checks_passed": true,
+  "study_seconds": 83.25434500002302,
+  "model_files_sha256": {
+    "simulate_axi_conv0.py": "21e4a5fc36e973de6cb4d320a8fa0eab7ff7e8274c7e2d468f53be631e997e3c",
+    "cycle_sim/core.py": "6bd761dd72db01fc1706ab5743e27466b73aa159cc2d6368eba29d0cc0dbfcbd",
+    "cycle_sim/axi.py": "1b6af1d60f6c36df76622eecb1dc449305741db07f2c706928aa6e4d145c9b22",
+    "cycle_sim/axi_system.py": "51112aebf5aee7894b9f450cb2ef3a95b5104bf33ddc58b532e3e04610f65e51",
+    "cycle_sim/axi_resources.py": "5af34b7ac878a9e7038faee26692f84de94703e96017c2a3d9af829925743665"
+  },
+  "selected_config": "cycle_sim/configs/conv0_int8_latency.json",
+  "resource_scenario_rows": 3240,
+  "mapping_rerun": "Mapping assumptions were rescored after adding fabric requantizer and output byte-bank costs; clock/data simulations were not rerun.",
+  "trace_only_model_update_after_clock_data_sweep": {
+    "file": "cycle_sim/axi_system.py",
+    "old_sha256": "50b73e4216fe9a1858454824abdc9327d56c62c4442cf69acd9f9ab7caaf9a2a",
+    "new_sha256": "51112aebf5aee7894b9f450cb2ef3a95b5104bf33ddc58b532e3e04610f65e51",
+    "description": "Added local write destination/address/data fields to the trace. The cycle state, transfers, arithmetic and resource calculations were unchanged; the selected 832/104 configuration was rerun with the final source."
+  }
+}
