@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-19",
+  "kind": "Python/static evidence; no HDL/Vivado/Vitis/board execution",
+  "python_unittest_cases_passed": 32,
+  "uart_invalid_capture_subcases": 12,
+  "layout_raw_values_matched": 26624,
+  "layout_int8_values_matched": 26624,
+  "fifo_random_steps": 100000,
+  "archived_images_independently_matched": 10,
+  "archived_raw_values_matched": 266240,
+  "archived_int8_values_matched": 266240,
+  "prepared_vector_cases": 14,
+  "analytic_scenarios": 96,
+  "exported_network_operations": 14,
+  "additional_checks": [
+    "Python source syntax",
+    "local documentation links",
+    "closed-form positive/negative overflow at corner/edge/interior"
+  ],
+  "source_sha256": {
+    "rtl/kv260_conv0/build/validation_vectors/suite.json": "7f25bbca2abf8ef64d4a58a18da29766ef7861f9450c6daa703d924a2fa12dc1",
+    "rtl/kv260_conv0/cpu/benchmark.c": "45e48cec288842335b44c6cb60a322eaf3593bd1a3cd9f3c6ba94b87f2f4c71c",
+    "rtl/kv260_conv0/scripts/build.tcl": "e483ffdcc169ec6ed624abda3e4d0a4c4ce2ec330fce7decc680d532fbeb39f6",
+    "rtl/kv260_conv0/scripts/create_project.tcl": "92e08c33295d21b17f58e65bbe1de15605400b5460e9082d8ebc6e0f144164f4",
+    "rtl/kv260_conv0/scripts/run_no_waves.tcl": "8c02043916eca8b2d9c9034c0a06a374b07fc426061e2db3eedf142ef54e6ef6",
+    "rtl/kv260_conv0/scripts/simulate.tcl": "18a946dad60d55bff7425c7d02be213217337954c419f71e32003afe2389aa99",
+    "rtl/kv260_conv0/scripts/synth_components.tcl": "a76b2fc6ccb06c6b7612e978a5d29cd8a26cc41467da524f15910f1b20e1f447",
+    "rtl/kv260_conv0/sim/tb_conv0_axi.sv": "effdc2f841ca3857739a2cdbf230121c38caa4f93b2b6d87c2c83de8c8aa61d9",
+    "rtl/kv260_conv0/src/conv0_832_core.sv": "84452613056cb216902aefbd82b2a300885b87d328b4f7d1ea6222595f696c21",
+    "rtl/kv260_conv0/src/conv0_axi_top.sv": "da64c1f57ccca9dce553eb036eb4755ef5f3de74578cf5fd446d48b29a8b397b",
+    "rtl/kv260_conv0/src/conv0_quant_pkg.sv": "68af88d3a07e6f0b58be5bdb5554472eac5ea11d2e25d8de5e0e9bf5f8d52734",
+    "rtl/kv260_conv0/src/conv0_requant.sv": "f389bae68f4cc86db6cee83d79471c6335b5e4b9fe89948d1ac661708b1f4521",
+    "rtl/kv260_conv0/src/conv0_result_fifo.sv": "7c87797696ff89dad145bc65569c64a76747bd485be56645c412630b08083606",
+    "rtl/kv260_conv0/src/mac_int8_mixed.sv": "11a2efe663fd3226191667c476f5d1c5aad8e0e009c450c27feff60769b4d50b",
+    "rtl/kv260_conv0/tools/check_layout.py": "f166be57aeda41601b7687d3960d660daf05143f077c0387be2a7c869f20bc79",
+    "rtl/kv260_conv0/tools/export_fixture.py": "b5c3cc7e85a508317e119246f4791361707fa3d77b9bf81c773bfb2e9a64e84a",
+    "rtl/kv260_conv0/tools/meeting_analysis.py": "581aa68658c65f121b326c92f2543747fe420fca72c6bab2ff55b094dfd071a4",
+    "rtl/kv260_conv0/tools/prepare_validation_vectors.py": "910ace826c7d9b62b2e6e6c761ffcd02ee8a9a4dd618ca5e0bb49316e57abaef",
+    "rtl/kv260_conv0/tools/summarize_uart.py": "a423b1e414aaf510a26ea49543517931529ee2b40b3c090ffc7a93dd74020b17",
+    "tests/test_uart_capture.py": "a0aa902eaa8fef9eb8da93f62ffecd37b811b8ef0c7e20769374067adde2c751"
+  }
+}

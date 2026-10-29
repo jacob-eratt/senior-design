@@ -1,0 +1,5 @@
+# Runtime SHA-256 guards require the vendored upstream bytes to remain exact.
+resnet8_project/resnet8/upstream/* -text
+resnet8_project/fixtures/**/*.mem -text
+# Preserve archived report/log bytes for the evidence SHA-256 manifest.
+resnet8_project/arch1_broadcast_832/reports/vivado_2026_10_19/** -text

@@ -18,4 +18,4 @@ This public summary captures project direction and planned actions. It is not a 
 3. Develop RTL and independent verification together; begin synthesis and KV260 bring-up early.
 4. Maintain weekly evidence-based reviews against the [Fall roadmap](../ROADMAP.md).
 
-Existing Python files remain in place. The [README](../../README.md) documents a future directory layout; migration is a separate task. The [project flow](../../projectflow.md) and [profiling guide](../../PROFILING.md) remain the baseline methodology references.
+Existing Python files remain in place. The [README](../../README.md) documents a future directory layout; migration is a separate task. The [project flow](../../projectflow.md) and profiling guide remain the baseline methodology references.

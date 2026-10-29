@@ -1,0 +1,6 @@
+# Managed by ChipAgents - keeps track of skill enablement
+[skills]
+"embedded:chipagents-guide" = true
+"embedded:d2-diagrams" = true
+"embedded:ppa-optimization" = true
+"embedded:waveform-review" = true

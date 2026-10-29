@@ -75,4 +75,4 @@ The principal goal is complete, verified inference on KV260 with documented perf
 
 AI tools are intended to support substantial RTL implementation and iteration. The team will own the architecture, specifications, independent acceptance tests, and review of synthesis and board results. The extent of architectural exploration will depend on progress and the tool support available through ChipAgents. Alongside hardware measurements, we will record engineering time, debugging effort, verification iterations, and incomplete attempts so the final report can assess the development process as well as the accelerator.
 
-For implementation tasks and acceptance criteria, see the [issue backlog](ISSUE_BACKLOG.md). The [project flow](../projectflow.md), [profiling guide](../PROFILING.md), and [kickoff summary](meeting-notes/2026-09-kickoff.md) provide supporting context.
+For implementation tasks and acceptance criteria, see the [issue backlog](ISSUE_BACKLOG.md). The [project flow](../projectflow.md), profiling guide, and [kickoff summary](meeting-notes/2026-09-kickoff.md) provide supporting context.
