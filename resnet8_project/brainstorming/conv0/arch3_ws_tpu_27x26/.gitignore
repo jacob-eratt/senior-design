@@ -1,0 +1,5 @@
+build/
+tb/vectors/
+*.jou
+*.log
+.Xil/
