@@ -20,8 +20,10 @@ sources together, without mixing duplicate core modules from those two paths.
 | [DEPLOY_KV260.md](DEPLOY_KV260.md) | Vitis/JTAG deployment instructions |
 | [docs/04_axi_wrapper.md](docs/04_axi_wrapper.md), [docs/05_axi_submodules.md](docs/05_axi_submodules.md) | Register/packet contract and source walkthrough |
 
-Generated Vivado projects, logs, memory-vector dumps, reports, bitstreams, XSAs,
-and ELF binaries are intentionally excluded. Scripts recreate build artifacts.
+The [hardware handoff](hardware/README.md) includes the existing integrated-build
+bitstream, XSA, six routed reports and checksums. Use the XSA to build the CPU
+application in Vitis. Generated Vivado projects, caches, checkpoints and memory
+vector dumps remain excluded; scripts recreate them. No compiled CPU ELF is supplied.
 
 ## Start here
 
@@ -58,6 +60,8 @@ local. In the guides, replace `<repo>` with your clone's absolute path.
 A historical wrapper simulation passed 1,820 INT32 comparisons and AXI checks on
 November 5. Local addressing/testbench changes followed that run. Publication of
 this branch does not claim those newer revisions have passed HDL simulation,
-integrated timing, Vitis compilation or board execution. Run the current tests
+Vitis compilation or board execution. Saved integrated reports and hardware
+artifacts are now included under `hardware/`, with positive routed timing slack;
+that evidence is distinct from a fresh build of this published commit. Run the current tests
 and record results against this branch's commit before deployment. The Python
 contract checker is useful preparation but does not execute the RTL.

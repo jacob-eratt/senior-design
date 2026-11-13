@@ -1,5 +1,10 @@
 # Deploying the 27×26 TPU tile on the KV260
 
+The existing built [XSA and bitstream are now included in hardware/](hardware/README.md),
+with routed reports and checksums. Use `hardware/tpu_kv260.xsa` for the supplied
+handoff, or generate a fresh `build/tpu_kv260.xsa` with the scripts below. The CPU
+ELF still needs to be built in Vitis; no board execution is claimed.
+
 Goal of this milestone: the A53 sends a weight tile and input vectors over DMA,
 the PL computes, and the A53 checks every INT32 result against a CPU-computed
 golden and prints latency. Background on the interfaces: [INTERFACING.md](INTERFACING.md).

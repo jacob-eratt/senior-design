@@ -1,0 +1,4 @@
+# Preserve downloaded artifacts/report bytes so SHA256SUMS is cross-platform.
+*.bit binary
+*.xsa binary
+reports/*.rpt -text -whitespace

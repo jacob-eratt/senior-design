@@ -5,6 +5,10 @@ each containing 27 INT8 values. It returns 26 INT32 dot products per vector.
 This guide explains the interfaces around that array and the remaining deployment
 work. It describes a matrix test, not yet a complete Conv0 or ResNet accelerator.
 
+The existing integrated build is now supplied in [hardware/](hardware/README.md):
+bitstream, XSA and original routed reports. The steps below remain the rebuild
+procedure; CPU application compilation and board validation are still required.
+
 ## 1. Three connections with different jobs
 
 | Connection | What travels across it | Who uses it? |
@@ -186,10 +190,12 @@ a packet. Every polling loop needs a timeout.
 | Vivado compilation and hierarchy elaboration | Passed; no simulation executed |
 | Python packing and planned feed schedule | Checked for N=1, 2, 3, 64 |
 | Behavioral simulation of this wrapper | User-run PASS on November 5, 2026: 1,820 INT32 comparisons plus AXI checks |
-| TPU PS/DMA block design, integrated synthesis and routing | Pending |
-| TPU bitstream/XSA, adapted CPU application and board comparison | Pending |
+| TPU PS/DMA integrated build | Existing local build supplied; routed reports show positive setup/hold slack. Not rebuilt for publication. |
+| TPU bitstream/XSA | Included in hardware/ with checksums |
+| CPU application and board comparison | C source supplied; Vitis build and board validation remain pending |
 
-The 702-DSP result is for `ws_mxu` alone. The old broadcast system's bitstream,
+The earlier core-only 702-DSP result is now supplemented by the integrated
+[routed evidence](hardware/README.md), which also reports 702 DSPs. The old broadcast system's bitstream,
 XSA, timing results and benchmark are references, not deployment artifacts for
 this TPU wrapper.
 
