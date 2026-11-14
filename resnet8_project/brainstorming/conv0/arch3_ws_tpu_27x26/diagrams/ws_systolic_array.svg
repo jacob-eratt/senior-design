@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="661 52 432 432" width="1296" height="1296" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ab" viewBox="0 0 8 8" refX="8" refY="4" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2F5597"/>
+    </marker>
+    <marker id="ao" viewBox="0 0 8 8" refX="8" refY="4" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#C55A11"/>
+    </marker>
+  </defs>
+  <rect x="661" y="52" width="432" height="432" fill="#FFFFFF"/>
+  <text x="919" y="72" font-size="12" text-anchor="middle">26 columns (output channels)</text>
+  <text x="694" y="230" font-size="12" text-anchor="middle" transform="rotate(-90 694 230)">27 rows (reduction dimension)</text>
+  <g font-size="11" fill="#C55A11" text-anchor="middle">
+    <text x="799" y="88">0</text>
+    <text x="889" y="88">0</text>
+    <text x="1039" y="88">0</text>
+  </g>
+  <g stroke="#C55A11" stroke-width="1.5">
+    <line x1="799" y1="92" x2="799" y2="108" marker-end="url(#ao)"/>
+    <line x1="889" y1="92" x2="889" y2="108" marker-end="url(#ao)"/>
+    <line x1="1039" y1="92" x2="1039" y2="108" marker-end="url(#ao)"/>
+    <line x1="799" y1="156" x2="799" y2="183" marker-end="url(#ao)"/>
+    <line x1="889" y1="156" x2="889" y2="183" marker-end="url(#ao)"/>
+    <line x1="1039" y1="156" x2="1039" y2="183" marker-end="url(#ao)"/>
+    <line x1="799" y1="231" x2="799" y2="252" marker-end="url(#ao)"/>
+    <line x1="889" y1="231" x2="889" y2="252" marker-end="url(#ao)"/>
+    <line x1="1039" y1="231" x2="1039" y2="252" marker-end="url(#ao)"/>
+    <line x1="799" y1="282" x2="799" y2="303" marker-end="url(#ao)"/>
+    <line x1="889" y1="282" x2="889" y2="303" marker-end="url(#ao)"/>
+    <line x1="1039" y1="282" x2="1039" y2="303" marker-end="url(#ao)"/>
+    <line x1="799" y1="351" x2="799" y2="375" marker-end="url(#ao)"/>
+    <line x1="889" y1="351" x2="889" y2="375" marker-end="url(#ao)"/>
+    <line x1="1039" y1="351" x2="1039" y2="375" marker-end="url(#ao)"/>
+  </g>
+  <g stroke="#2F5597" stroke-width="1.5">
+    <line x1="725" y1="133" x2="768" y2="133" marker-end="url(#ab)"/>
+    <line x1="725" y1="208" x2="768" y2="208" marker-end="url(#ab)"/>
+    <line x1="725" y1="328" x2="768" y2="328" marker-end="url(#ab)"/>
+    <line x1="828" y1="133" x2="858" y2="133" marker-end="url(#ab)"/>
+    <line x1="828" y1="208" x2="858" y2="208" marker-end="url(#ab)"/>
+    <line x1="828" y1="328" x2="858" y2="328" marker-end="url(#ab)"/>
+    <line x1="918" y1="133" x2="940" y2="133"/>
+    <line x1="918" y1="208" x2="940" y2="208"/>
+    <line x1="918" y1="328" x2="940" y2="328"/>
+    <line x1="970" y1="133" x2="1008" y2="133" marker-end="url(#ab)"/>
+    <line x1="970" y1="208" x2="1008" y2="208" marker-end="url(#ab)"/>
+    <line x1="970" y1="328" x2="1008" y2="328" marker-end="url(#ab)"/>
+  </g>
+  <g font-size="13" fill="#2F5597" text-anchor="end">
+    <text x="720" y="137">x<tspan font-size="9" dy="3">0</tspan></text>
+    <text x="720" y="212">x<tspan font-size="9" dy="3">1</tspan></text>
+    <text x="720" y="332">x<tspan font-size="9" dy="3">26</tspan></text>
+  </g>
+  <g fill="#DDEBF7" stroke="#2F5597" stroke-width="1.5">
+    <rect x="770" y="110" width="58" height="46" rx="4"/>
+    <rect x="860" y="110" width="58" height="46" rx="4"/>
+    <rect x="1010" y="110" width="58" height="46" rx="4"/>
+    <rect x="770" y="185" width="58" height="46" rx="4"/>
+    <rect x="860" y="185" width="58" height="46" rx="4"/>
+    <rect x="1010" y="185" width="58" height="46" rx="4"/>
+    <rect x="770" y="305" width="58" height="46" rx="4"/>
+    <rect x="860" y="305" width="58" height="46" rx="4"/>
+    <rect x="1010" y="305" width="58" height="46" rx="4"/>
+  </g>
+  <g font-size="15" text-anchor="middle">
+    <text x="799" y="137">W<tspan font-size="9" dy="4">0,0</tspan></text>
+    <text x="889" y="137">W<tspan font-size="9" dy="4">0,1</tspan></text>
+    <text x="1039" y="137">W<tspan font-size="9" dy="4">0,25</tspan></text>
+    <text x="799" y="212">W<tspan font-size="9" dy="4">1,0</tspan></text>
+    <text x="889" y="212">W<tspan font-size="9" dy="4">1,1</tspan></text>
+    <text x="1039" y="212">W<tspan font-size="9" dy="4">1,25</tspan></text>
+    <text x="799" y="332">W<tspan font-size="9" dy="4">26,0</tspan></text>
+    <text x="889" y="332">W<tspan font-size="9" dy="4">26,1</tspan></text>
+    <text x="1039" y="332">W<tspan font-size="9" dy="4">26,25</tspan></text>
+  </g>
+  <g font-size="20" fill="#404040" text-anchor="middle">
+    <text x="955" y="139">⋯</text>
+    <text x="955" y="214">⋯</text>
+    <text x="955" y="334">⋯</text>
+    <text x="799" y="275">⋮</text>
+    <text x="889" y="275">⋮</text>
+    <text x="1039" y="275">⋮</text>
+    <text x="955" y="275">⋱</text>
+  </g>
+  <g font-size="13" fill="#C55A11" text-anchor="middle">
+    <text x="799" y="393">y<tspan font-size="9" dy="3">0</tspan></text>
+    <text x="889" y="393">y<tspan font-size="9" dy="3">1</tspan></text>
+    <text x="1039" y="393">y<tspan font-size="9" dy="3">25</tspan></text>
+  </g>
+  <text x="919" y="415" font-size="11" fill="#595959" text-anchor="middle">26 dot products per input vector → result memory</text>
+  <line x1="690" y1="442" x2="722" y2="442" stroke="#2F5597" stroke-width="1.5" marker-end="url(#ab)"/>
+  <text x="730" y="446" font-size="12">activations move right</text>
+  <line x1="880" y1="442" x2="912" y2="442" stroke="#C55A11" stroke-width="1.5" marker-end="url(#ao)"/>
+  <text x="920" y="446" font-size="12">partial sums move down</text>
+  <text x="690" y="470" font-size="12">Each PE: psum<tspan font-size="9" dy="3">out</tspan><tspan dy="-3"> = psum</tspan><tspan font-size="9" dy="3">in</tspan><tspan dy="-3"> + x · W   (W stays fixed in the PE)</tspan></text>
+</svg>
