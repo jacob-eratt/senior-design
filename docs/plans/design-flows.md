@@ -14,39 +14,37 @@ The Claude Code and ChipAgents flows both take the manual flow's documentation/s
 
 **Legend (Claude Code and ChipAgents flows)**
 
-| Shape | Meaning |
+| Shape / color | Meaning |
 |---|---|
 | Circle | Process |
 | Rectangle | Input / output artifact |
-| Square | Comparison |
+| Square (bold border) | Comparison |
+| Orange border | Claude Code flow |
+| Blue border | ChipAgents flow |
 
 ```mermaid
 %%{init: {"flowchart": {"useMaxWidth": false, "nodeSpacing": 90, "rankSpacing": 110, "padding": 25, "diagramPadding": 30}, "themeVariables": {"fontSize": "26px"}}}%%
 flowchart LR
-    subgraph MAN["Manual Flow (LLM-Assisted)"]
-        M1[Brainstorming] --> M2[Documentation / Spec]
-        M2 --> M3[RTL Design]
-        M3 --> M4[Optimization]
-        M4 --> M5[Interfacing]
-        M5 --> M6[Verification]
-        M6 --> M7[FPGA Implementation]
-        M7 --> M8[Performance Measurements]
-    end
+    %% ---------- Manual flow (LLM-assisted) ----------
+    M1[Brainstorming]
+    M2[Documentation / Spec]
+    M3[RTL Design]
+    M4[Optimization]
+    M5[Interfacing]
+    M6[Verification]
+    M7[FPGA Implementation]
+    M8[Performance Measurements]
 
-    subgraph CC["Claude Code Flow"]
-        CC1((Generate<br/>Arch Spec)) --> CC2[Arch Spec<br/>Claude Code]
-        CC3((Generate<br/>RTL)) --> CC4[RTL Code<br/>Claude Code]
-        CC3 --> CC5[Synthesis Reports<br/>Claude Code]
-        CC6((Verification)) --> CC7[Verified Implementation<br/>Claude Code]
-    end
+    %% ---------- Claude Code flow ----------
+    CC1((Generate<br/>Arch Spec)):::cc
+    CC2[Arch Spec<br/>Claude Code]:::cc
+    CC3((Generate<br/>RTL)):::cc
+    CC4[RTL Code<br/>Claude Code]:::cc
+    CC5[Synthesis Reports<br/>Claude Code]:::cc
+    CC6((Verification)):::cc
+    CC7[Verified Implementation<br/>Claude Code]:::cc
 
-    subgraph CA["ChipAgents Flow"]
-        CA1((Generate<br/>Arch Spec)) --> CA2[Arch Spec<br/>ChipAgents]
-        CA3((Generate<br/>RTL)) --> CA4[RTL Code<br/>ChipAgents]
-        CA3 --> CA5[Synthesis Reports<br/>ChipAgents]
-        CA6((Verification)) --> CA7[Verified Implementation<br/>ChipAgents]
-    end
-
+    %% ---------- Shared comparisons and selections ----------
     CMP1[Compare<br/>Arch<br/>Specs]:::compare
     SEL1[Selected<br/>Arch Spec]
     CMP2[Compare<br/>RTL &<br/>Synth]:::compare
@@ -55,26 +53,40 @@ flowchart LR
     SEL3[Selected<br/>Implementation]
     FPGA1((FPGA Implementation &<br/>Performance Analysis))
 
-    M2 --> CC1
-    M2 --> CA1
-    CC2 --> CMP1
-    CA2 --> CMP1
-    CMP1 --> SEL1
-    SEL1 --> CC3
-    SEL1 --> CA3
-    CC4 --> CMP2
-    CC5 --> CMP2
-    CA4 --> CMP2
-    CA5 --> CMP2
-    CMP2 --> SEL2
-    SEL2 --> CC6
-    SEL2 --> CA6
-    CC7 --> CMP3
-    CA7 --> CMP3
-    CMP3 --> SEL3
-    SEL3 --> FPGA1
+    %% ---------- ChipAgents flow ----------
+    CA1((Generate<br/>Arch Spec)):::ca
+    CA2[Arch Spec<br/>ChipAgents]:::ca
+    CA3((Generate<br/>RTL)):::ca
+    CA4[RTL Code<br/>ChipAgents]:::ca
+    CA5[Synthesis Reports<br/>ChipAgents]:::ca
+    CA6((Verification)):::ca
+    CA7[Verified Implementation<br/>ChipAgents]:::ca
 
-    classDef compare stroke-width:3px,font-weight:bold
+    %% ---------- Manual flow edges ----------
+    M1 --> M2 --> M3 --> M4 --> M5 --> M6 --> M7 --> M8
+
+    %% ---------- Claude Code flow edges ----------
+    M2 --> CC1 --> CC2 --> CMP1
+    SEL1 --> CC3
+    CC3 --> CC4 --> CMP2
+    CC3 --> CC5 --> CMP2
+    SEL2 --> CC6 --> CC7 --> CMP3
+
+    %% ---------- Shared edges ----------
+    CMP1 --> SEL1
+    CMP2 --> SEL2
+    CMP3 --> SEL3 --> FPGA1
+
+    %% ---------- ChipAgents flow edges ----------
+    M2 --> CA1 --> CA2 --> CMP1
+    SEL1 --> CA3
+    CA3 --> CA4 --> CMP2
+    CA3 --> CA5 --> CMP2
+    SEL2 --> CA6 --> CA7 --> CMP3
+
+    classDef cc stroke:#d97757,stroke-width:3px
+    classDef ca stroke:#3b82f6,stroke-width:3px
+    classDef compare stroke-width:4px,font-weight:bold
 ```
 
 ## Flow Descriptions
